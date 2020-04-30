@@ -27,7 +27,8 @@ module.exports={
         rules:[//所有第三方模块的匹配规则
             {test:/\.css$/,use:['style-loader','css-loader']},
             {test:/\.less$/,use:['style-loader','css-loader','less-loader']},
-            {test:/\.(jpg|png|gif|jpeg|bmp)$/,loader:'url-loader?limit=333200&name=[name].[ext]'},
+            {test:/.\scss$/,use:['style-loader','css-loader','sass-loader']},
+            {test: /\.(jpg|png|gif|bmp|jpeg)$/, use: 'url-loader?limit=7631&name=[hash:8]-[name].[ext]' },
             {
                 test:/\.js$/,
                 use:{
@@ -39,8 +40,9 @@ module.exports={
                 },
                 exclude:/node_modules/
             },
-            {test: /\.(eot|svg|ttf|woff|woff2)$/, loader:"url-loader",},
-            {test:/\.vue$/,use:'vue-loader'}//处理.vue文件的loader
+            {test: /\.(eot|svg|ttf|woff|woff2)$/, loader:"url-loader"},
+            {test:/\.vue$/,use:'vue-loader'},//处理.vue文件的loader
+
         ]
     },
     resolve:{
