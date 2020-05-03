@@ -9,9 +9,9 @@
         </mt-swipe>
 <!--        九宫格区域-->
         <ul class="mui-table-view mui-grid-view mui-grid-9">
-            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/home/newsList">
                 <img src="/static/images/menu1.png" alt="">
-                <div class="mui-media-body">新闻资讯</div></a></li>
+                <div class="mui-media-body">新闻资讯</div></router-link></li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
                 <img src="/static/images/menu2.png" alt="">
                 <div class="mui-media-body">图片分享</div></a></li>
@@ -48,7 +48,7 @@
         methods:{
            getLunbotu(){
                //获取轮播图数据
-               this.$http.get('http://www.liulongbin.top:3005/api/getlunbo').then(result=>{
+               this.$http.get('api/getlunbo').then(result=>{
                    // console.log(result.body);
                    if(result.body.status===0){
                        this.lunbotuList=result.body.message;
