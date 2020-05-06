@@ -27,7 +27,7 @@ module.exports={
         rules:[//所有第三方模块的匹配规则
             {test:/\.css$/,use:['style-loader','css-loader']},
             {test:/\.less$/,use:['style-loader','css-loader','less-loader']},
-            {test:/.\scss$/,use:['style-loader','css-loader','sass-loader']},
+            {test:/\.scss$/,use:['style-loader','css-loader','sass-loader']},
             {test: /\.(jpg|png|gif|bmp|jpeg)$/, use: 'url-loader?limit=7631&name=[hash:8]-[name].[ext]' },
             {
                 test:/\.js$/,
