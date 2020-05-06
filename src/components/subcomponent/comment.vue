@@ -19,6 +19,7 @@
 </template>
 
 <script>
+    import axios from 'axios'
     import { Toast }  from 'mint-ui'
     export default {
         data(){
@@ -35,11 +36,11 @@
         ,
         methods:{
             getComments(){
-                this.$http.get('api/getcomments/'+this.id+'?pageindex='+this.pageIndex).then(result=>{
-                    if(result.body.status===0){
+                axios.get('api/getcomments/'+this.id+'?pageindex='+this.pageIndex).then(result=>{
+                    if(result.data.status===0){
                         // this.comments=result.body.message;
                         //每当获取新数据的时候，不要把老数据清空，老数据拼接上新数据
-                        this.comments=this.comments.concat(result.body.message)
+                        this.comments=this.comments.concat(result.data.message)
                     }
                     else{
                         Toast('获取评论失败！')
@@ -55,10 +56,10 @@
                 if(this.msg.trim().length===0){
                     return Toast('评论内容不能为空!')
                 }
-                this.$http.post('api/postcomment/'+this.id,{
+                axios.post('api/postcomment/'+this.id,{
                     content:this.msg.trim()
-                }).then(function(result){
-                    if(result.body.status===0){
+                }).then(result=>{
+                    if(result.data.status===0){
                         //拼接一个评论对象：
                         var cmt={user_name:'匿名用户',add_time:Date.now(),content:this.msg.trim()}
                         this.comments.unshift(cmt)

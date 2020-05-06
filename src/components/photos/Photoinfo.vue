@@ -42,14 +42,14 @@
         },
         methods:{
             getPhotoInfo(){
-                axios.get('http://www.liulongbin.top:3005/api/getimageInfo/'+this.id).then(result=>{
+                axios.get('api/getimageInfo/'+this.id).then(result=>{
                     if(result.data.status===0){
                         this.photoinfo=result.data.message[0]
                     }
                 })
             },
             getThumbs(){
-                axios.get('http://www.liulongbin.top:3005/api/getthumimages/'+this.id).then(result=>{
+                axios.get('api/getthumimages/'+this.id).then(result=>{
                     if(result.data.status===0){
                         result.data.message.forEach(element=>{
                             element.w=600//设置以大图浏览时的宽度

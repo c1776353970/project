@@ -11,17 +11,21 @@ import router from './router.js'
 
 //2.1导入axios
 import axios from'axios'
+axios.defaults.baseURL = "http://www.liulongbin.top:3005"; // 关键步骤–填写后台请求统一的地址
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+Vue.config.productionTip = false;
+
 //2.2安装axios
 Vue.prototype.axios = axios
 
-//导入vue-resource
+/*//导入vue-resource
 import VueResource from 'vue-resource'
 //安装vue-resource
 Vue.use(VueResource)
 //设置请求的根路径
-Vue.http.options.root='http://www.liulongbin.top:3005'
+Vue.http.options.root='http://www.liulongbin.top:3005'*/
 //全局设置post时候表单数据格式的请求形式
-Vue.http.options.emulateJSON=true
+// Vue.http.options.emulateJSON=true
 
 //导入时间插件
 import moment from 'moment'

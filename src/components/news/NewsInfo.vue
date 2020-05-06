@@ -14,6 +14,7 @@
 </template>
 
 <script>
+    import axios from'axios'
     //导入评论子组件
     import comment from "../subcomponent/comment.vue";
     import {Toast} from 'mint-ui'
@@ -29,9 +30,9 @@
         },
         methods:{
             getnewsinfo(){//获取新闻详情
-                this.$http.get('api/getnew/'+this.id).then(result=>{
-                    if(result.body.status===0){
-                        this.newsinfo=result.body.message[0]
+                axios.get('api/getnew/'+this.id).then(result=>{
+                    if(result.data.status===0){
+                        this.newsinfo=result.data.message[0]
                     }
                     else{
                         Toast('加载新闻详情失败！')

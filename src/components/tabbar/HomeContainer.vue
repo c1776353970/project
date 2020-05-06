@@ -33,7 +33,7 @@
 </template>
 
 <script>
-
+    import axios from 'axios'
     import { Toast } from "mint-ui"
 
     export default {
@@ -48,10 +48,10 @@
         methods:{
            getLunbotu(){
                //获取轮播图数据
-               this.$http.get('api/getlunbo').then(result=>{
+               axios.get('api/getlunbo').then(result=>{
                    // console.log(result.body);
-                   if(result.body.status===0){
-                       this.lunbotuList=result.body.message;
+                   if(result.data.status===0){
+                       this.lunbotuList=result.data.message;
                    }
                    else{
                        Toast('获取失败！')

@@ -51,7 +51,7 @@
         methods:{
             getAllCategory(){
                 //获取全部分类
-                axios.get('http://www.liulongbin.top:3005/api/getimgcategory').then(result=>{
+                axios.get('api/getimgcategory').then(result=>{
                     if(result.data.status===0){
                          // console.log(result);
                         //手动拼接出一个最完整的分类列表
@@ -62,7 +62,7 @@
             },
             getPhotoListByCateId(cateId){
                 //根据 分类id获取图片列表
-                axios.get('http://www.liulongbin.top:3005/api/getimages/'+cateId).then(result=>{
+                axios.get('api/getimages/'+cateId).then(result=>{
                     if(result.data.status===0){
                         // console.log(result);
                         this.list=result.data.message;
