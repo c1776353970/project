@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.9.2",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "html-webpack-plugin": "^4.2.0",
     "mint-ui": "^2.2.13",
     "moment": "^2.25.3",
